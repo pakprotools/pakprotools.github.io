@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>PakPDF Pro — All-in-One 33 PDF Tools (International Standard & Native Urdu Engine)</title>
+  <title>PakPDF Pro — 33 Browser PDF Utilities | Urdu &amp; English</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -95,13 +95,13 @@
     <div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
-          <i class="fa-solid fa-check-circle mr-1"></i> Browser processing • 100% Crisp &amp; Clear
+          <i class="fa-solid fa-check-circle mr-1"></i> Private browser processing • Verify output
         </span>
         <span class="text-slate-200 hidden sm:inline" id="bannerTextEn">
           PDF tools run in your browser. Some conversions simplify layouts; always check the output.
         </span>
         <span class="text-amber-200 font-urdu text-xs sm:text-sm" dir="rtl">
-          تمام فائلز ۳۰۰ ڈی پی آئی فل ایچ ڈی ریزولوشن اور انتہائی واضح کوالٹی میں کنورٹ ہوں گی
+          فائلیں براؤزر میں پروسیس ہوتی ہیں؛ نتیجہ استعمال کرنے سے پہلے ضرور چیک کریں
         </span>
       </div>
       <div class="flex items-center gap-3 ml-auto">
@@ -237,7 +237,7 @@
     </div>
     <div id="mobileDrawerCategories" class="flex-1 overflow-y-auto p-3 space-y-3"></div>
     <div class="p-3 border-t border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-500">
-      <span><i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> 100% Client-Side Privacy</span>
+      <span><i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> Files processed locally; third-party scripts load online</span>
       <span class="font-urdu text-slate-700">اردو اور انگلش سپورٹ فعال ہے</span>
     </div>
   </aside>
@@ -406,7 +406,7 @@
             <div id="cameraZone" class="hidden mt-4 bg-slate-900 rounded-2xl p-4 text-white">
               <div class="flex items-center justify-between mb-3">
                 <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                  <i class="fa-solid fa-camera"></i> Live Document Scanner (Full HD / 4K)
+                  <i class="fa-solid fa-camera"></i> Live Document Scanner (camera quality varies)
                 </span>
                 <div class="flex gap-2">
                   <button onclick="startCameraScan()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold cursor-pointer">Start Camera</button>
@@ -475,7 +475,7 @@
                   </div>
                   <div class="flex-1 min-w-0">
                     <h4 class="text-sm font-bold text-emerald-950" id="outputResultTitle">Success! Ready to Download</h4>
-                    <p class="text-xs text-emerald-800 break-words" id="outputResultMeta">Your processed file has been generated in Ultra HD quality.</p>
+                    <p class="text-xs text-emerald-800 break-words" id="outputResultMeta">Your processed file has been generated in in your browser.</p>
                   </div>
                 </div>
 
@@ -506,7 +506,7 @@
                 onclick="executeActiveTool()"
                 class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#f26c4f] to-[#e11d48] hover:from-[#e0583b] hover:to-[#be123c] text-white font-extrabold text-base shadow-lg shadow-rose-500/20 flex items-center justify-center gap-2.5 transition cursor-pointer"
               >
-                <span id="executeToolBtnLabel">Convert &amp; Download in Ultra HD</span>
+                <span id="executeToolBtnLabel">Process File</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -623,7 +623,7 @@
           { id: 'pdf-to-word', name: 'PDF to WORD', nameUr: 'پی ڈی ایف سے ایم ایس ورڈ', icon: 'fa-file-word', color: '#3b82f6', accept: '.pdf', multiple: false, desc: 'Extract text into an editable Word document with true Urdu Nastaliq & RTL formatting.' },
           { id: 'pdf-to-powerpoint', name: 'PDF to POWERPOINT', nameUr: 'پی ڈی ایف سے پاورپوائنٹ', icon: 'fa-file-powerpoint', color: '#e67e22', accept: '.pdf', multiple: false, desc: 'Export PDF pages into a ready-to-present slide deck.' },
           { id: 'pdf-to-excel', name: 'PDF to EXCEL', nameUr: 'پی ڈی ایف سے ایکسل (XLSX)', icon: 'fa-file-excel', color: '#27ae60', accept: '.pdf', multiple: false, desc: 'Extract structured tables from PDF into a real Excel (.xlsx) workbook.' },
-          { id: 'pdf-to-pdfa', name: 'PDF to PDF/A', nameUr: 'آرکائیو پی ڈی ایف (PDF/A)', icon: 'fa-file-shield', color: '#2980b9', accept: '.pdf', multiple: false, desc: 'Standardize fonts and metadata streams for long-term ISO PDF/A preservation.' }
+          { id: 'pdf-to-pdfa', name: 'PDF to PDF/A', nameUr: 'آرکائیو پی ڈی ایف (PDF/A)', icon: 'fa-file-shield', color: '#2980b9', accept: '.pdf', multiple: false, desc: 'Unavailable; PDF/A archival compliance needs external validation.' }
         ]
       },
       {
@@ -648,10 +648,10 @@
         color: '#4a7c9b',
         badgeClass: 'bg-sky-100 text-sky-800 border-sky-200',
         tools: [
-          { id: 'unlock-pdf', name: 'Unlock PDF', nameUr: 'پی ڈی ایف ان لاک کریں', icon: 'fa-unlock-keyhole', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Remove restrictions and re-save a clean unlocked PDF.' },
-          { id: 'protect-pdf', name: 'Protect PDF', nameUr: 'پاس ورڈ اور سیکیورٹی لگائیں', icon: 'fa-shield-halved', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Add security metadata and lock document with password protection notice.' },
+          { id: 'unlock-pdf', name: 'Unlock PDF', nameUr: 'پی ڈی ایف ان لاک کریں', icon: 'fa-unlock-keyhole', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Unavailable; password-protected PDFs cannot be unlocked with this library.' },
+          { id: 'protect-pdf', name: 'Protect PDF', nameUr: 'پاس ورڈ اور سیکیورٹی لگائیں', icon: 'fa-shield-halved', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Unavailable; real password encryption is required for reliable protection.' },
           { id: 'sign-pdf', name: 'Sign PDF', nameUr: 'پی ڈی ایف پر دستخط کریں', icon: 'fa-signature', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Draw a digital signature or type an Urdu/English signature to stamp onto PDF.' },
-          { id: 'redact-pdf', name: 'Redact PDF', nameUr: 'حساس معلومات چھپائیں (Redact)', icon: 'fa-eraser', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Permanently black out confidential regions or text on PDF pages.' },
+          { id: 'redact-pdf', name: 'Redact PDF', nameUr: 'حساس معلومات چھپائیں (Redact)', icon: 'fa-eraser', color: '#4a7c9b', accept: '.pdf', multiple: false, desc: 'Unavailable pending verified, irreversible removal of sensitive content.' },
           { id: 'compare-pdf', name: 'Compare PDF', nameUr: 'دو پی ڈی ایف فائلوں کا موازنہ', icon: 'fa-code-compare', color: '#4a7c9b', accept: '.pdf', multiple: true, desc: 'Upload two PDF files to compare page counts and text differences.' }
         ]
       },
@@ -663,7 +663,7 @@
         badgeClass: 'bg-violet-100 text-violet-800 border-violet-200',
         tools: [
           { id: 'ai-summarizer', name: 'AI Summarizer', nameUr: 'اے آئی خلاصہ نگار', icon: 'fa-wand-magic-sparkles', color: '#6c5ce7', accept: '.pdf,.txt', multiple: false, desc: 'Generate an executive summary & key bullet points in Urdu and English from your PDF.' },
-          { id: 'translate-pdf', name: 'Translate PDF', nameUr: 'پی ڈی ایف ترجمہ کریں (اردو ⇄ انگلش)', icon: 'fa-language', color: '#6c5ce7', accept: '.pdf,.txt', multiple: false, desc: 'Translate PDF text into Urdu or English and download a cleanly formatted document.' },
+          { id: 'translate-pdf', name: 'Translate PDF', nameUr: 'پی ڈی ایف ترجمہ کریں (اردو ⇄ انگلش)', icon: 'fa-language', color: '#6c5ce7', accept: '.pdf,.txt', multiple: false, desc: 'Unavailable; this version has no translation model installed.' },
           { id: 'pdf-to-markdown', name: 'PDF to Markdown', nameUr: 'پی ڈی ایف سے مارک ڈاؤن (.MD)', icon: 'fa-hashtag', color: '#6c5ce7', accept: '.pdf', multiple: false, desc: 'Convert PDF headings, paragraphs, and Urdu/English text into structured Markdown (.md).' }
         ]
       }
@@ -807,55 +807,42 @@
       return { bytes: new Uint8Array(await pngBlob.arrayBuffer()), width, height: totalHeight };
     }
 
-    // Multi-page Text to PDF helper in Ultra-HD 300 DPI
+    // True measured-line pagination prevents long paragraphs from shrinking to illegible text.
     async function convertTextToPdfDocument(fullText, title = 'Document') {
-      if (document.fonts) {
-        await document.fonts.ready;
-      }
-      const pdfDoc = await PDFLib.PDFDocument.create();
-      const pageWidth = 595.28;
-      const pageHeight = 841.89;
-      const margin = 40;
-      const usableWidth = pageWidth - margin * 2;
-      const usableHeight = pageHeight - margin * 2;
-
-      const paragraphs = String(fullText || '').split(/\r?\n/);
-      let pageChunks = [];
-      let currentChunk = [];
-      let currentLineCount = 0;
-      const linesPerPage = 18;
-
-      for (const p of paragraphs) {
-        const estLines = Math.max(1, Math.ceil(p.length / 50));
-        if (currentLineCount + estLines > linesPerPage && currentChunk.length > 0) {
-          pageChunks.push(currentChunk.join('\n'));
-          currentChunk = [p];
-          currentLineCount = estLines;
-        } else {
-          currentChunk.push(p);
-          currentLineCount += estLines;
+      if (document.fonts) await document.fonts.ready;
+      const pdfDoc=await PDFLib.PDFDocument.create();
+      const pageWidth=595.28,pageHeight=841.89,margin=40;
+      const width=2400,fontSize=62,padding=70,maxWidth=width-2*padding;
+      const measure=document.createElement('canvas').getContext('2d');
+      measure.font=`600 ${fontSize}px "Noto Nastaliq Urdu", "Noto Sans Arabic", "Inter", sans-serif`;
+      const lines=[];
+      const graphemes=word=>typeof Intl.Segmenter==='function'
+        ? Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(word),x=>x.segment)
+        : Array.from(word);
+      for(const paragraph of String(fullText||'').split(/\r?\n/)){
+        if(!paragraph.trim()){lines.push('');continue;}
+        let line='';
+        for(const word of paragraph.trim().split(/\s+/)){
+          if(measure.measureText((line?line+' ':'')+word).width<=maxWidth){line=line?line+' '+word:word;continue;}
+          if(line){lines.push(line);line='';}
+          if(measure.measureText(word).width<=maxWidth){line=word;continue;}
+          // Exceptionally long single tokens (URLs/identifiers) must wrap as well.
+          for(const part of graphemes(word)){
+            if(line && measure.measureText(line+part).width>maxWidth){lines.push(line);line='';}
+            line+=part;
+          }
         }
+        lines.push(line);
       }
-      if (currentChunk.length > 0) {
-        pageChunks.push(currentChunk.join('\n'));
-      }
-      if (pageChunks.length === 0) pageChunks = ['خالی دستاویز'];
-
-      for (let i = 0; i < pageChunks.length; i++) {
-        const page = pdfDoc.addPage([pageWidth, pageHeight]);
-        const rendered = await renderUrduTextToPngBytes(pageChunks[i], {
-          width: 2400,
-          fontSize: 62,
-          padding: 70
-        });
-        const pngImg = await pdfDoc.embedPng(rendered.bytes);
-        const dims = pngImg.scaleToFit(usableWidth, usableHeight);
-        page.drawImage(pngImg, {
-          x: margin + (usableWidth - dims.width) / 2,
-          y: pageHeight - margin - dims.height,
-          width: dims.width,
-          height: dims.height
-        });
+      const linesPerPage=18;
+      if(lines.length>linesPerPage*150)throw new Error('Document exceeds the browser limit of 150 pages. Please divide it into smaller sections.');
+      for(let start=0;start<lines.length;start+=linesPerPage){
+        const chunk=lines.slice(start,start+linesPerPage).join('\n');
+        const page=pdfDoc.addPage([pageWidth,pageHeight]);
+        const rendered=await renderUrduTextToPngBytes(chunk,{width,fontSize,padding});
+        const img=await pdfDoc.embedPng(rendered.bytes);
+        const fit=img.scaleToFit(pageWidth-margin*2,pageHeight-margin*2);
+        page.drawImage(img,{x:margin+(pageWidth-2*margin-fit.width)/2,y:pageHeight-margin-fit.height,width:fit.width,height:fit.height});
       }
       return await pdfDoc.save();
     }
@@ -982,7 +969,7 @@
         grid.innerHTML = `
           <div class="col-span-full bg-white rounded-2xl p-10 text-center border border-slate-200">
             <i class="fa-solid fa-magnifying-glass text-3xl text-slate-300 mb-2"></i>
-            <p class="font-bold text-slate-700">No matching tool found for "${searchQuery}"</p>
+            <p class="font-bold text-slate-700">No matching tool found. Try another keyword.</p>
             <button onclick="handleSearch(''); filterCategory('ALL');" class="mt-3 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold">Reset Filters</button>
           </div>
         `;
@@ -1082,7 +1069,7 @@
       fileInput.multiple = !!tool.multiple;
 
       document.getElementById('cameraZone').classList.toggle('hidden', tool.id !== 'scan-to-pdf');
-      document.getElementById('executeToolBtnLabel').textContent = `${tool.name} & Download in Ultra HD`;
+      document.getElementById('executeToolBtnLabel').textContent = `${tool.name} — Process File`;
 
       resetWorkspaceFiles();
       renderToolControls(tool);
@@ -1097,7 +1084,7 @@
 
     function renderToolControls(tool) {
       const container = document.getElementById('toolDynamicControls');
-      const defaultUrduSample = `بسم اللہ الرحمن الرحیم\nپاک پی ڈی ایف پرو میں خوش آمدید!\nیہ تحریر اردو نستعلیق فونٹ اور انگریزی میں بالکل درست الفاظ اور ترتیب کے ساتھ پی ڈی ایف میں محفوظ ہوتی ہے۔\nPakPDF Pro preserves all fonts, formatting, and RTL alignment accurately.`;
+      const defaultUrduSample = `بسم اللہ الرحمن الرحیم\nپاک پی ڈی ایف پرو میں خوش آمدید!\nیہ تحریر اردو نستعلیق فونٹ اور انگریزی میں بالکل درست الفاظ اور ترتیب کے ساتھ پی ڈی ایف میں محفوظ ہوتی ہے۔\nPakPDF Pro processes Urdu and English text; complex formatting may change.`;
 
       let html = '';
       if (['word-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'edit-pdf', 'add-watermark', 'sign-pdf', 'translate-pdf'].includes(tool.id)) {
@@ -1106,7 +1093,7 @@
             <label class="block text-xs font-bold text-slate-700 mb-1">Text Content (Urdu / English)</label>
             <textarea id="ctrlUrduText" rows="5" dir="rtl" class="w-full p-3 rounded-xl bg-white border border-slate-300 text-sm urdu-input focus:border-indigo-500 focus:outline-none">${
               tool.id === 'add-watermark' ? 'پاک پی ڈی ایف - انتہائی خفیہ' :
-              tool.id === 'sign-pdf' ? 'آپ کا نام / Your signature' : defaultUrduSample
+              ['sign-pdf','edit-pdf'].includes(tool.id) ? '' : defaultUrduSample
             }</textarea>
           </div>
         `;
@@ -1202,6 +1189,7 @@
       const input = document.getElementById('wsFileInput');
       if (input) input.value = '';
       updateFileListUI();
+      rebuildPageThumbnails(); // Clear old document previews when switching tools.
     }
 
     async function addFilesToWorkspace(files) {
@@ -1234,10 +1222,15 @@
       `).join('');
     }
 
+    let temporaryImageUrls=[];
+    let previewGeneration=0;
     async function rebuildPageThumbnails() {
+      const thisGeneration=++previewGeneration;
+      const filesSnapshot=uploadedFiles.slice();
+      temporaryImageUrls.forEach(url=>URL.revokeObjectURL(url));temporaryImageUrls=[];
       const grid = document.getElementById('pageThumbnailsGrid');
       pageMetaList = [];
-      if (uploadedFiles.length === 0) {
+      if (filesSnapshot.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full py-12 text-center text-slate-400 text-sm">
             <i class="fa-regular fa-file-pdf text-3xl mb-2 block opacity-60"></i>
@@ -1249,34 +1242,42 @@
 
       grid.innerHTML = `<div class="col-span-full py-8 text-center text-xs text-slate-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Generating preview...</div>`;
 
-      for (let fIdx = 0; fIdx < uploadedFiles.length; fIdx++) {
-        const file = uploadedFiles[fIdx];
+      for (let fIdx = 0; fIdx < filesSnapshot.length; fIdx++) {
+        if(thisGeneration!==previewGeneration)return;
+        const file = filesSnapshot[fIdx];
         if (file.name.toLowerCase().endsWith('.pdf') && window.pdfjsLib) {
           try {
             const buf = await file.arrayBuffer();
             const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+            if(thisGeneration!==previewGeneration){pdf.destroy();return;}
             const maxPages = Math.min(pdf.numPages, 12);
             for (let p = 1; p <= maxPages; p++) {
               const page = await pdf.getPage(p);
+              if(thisGeneration!==previewGeneration){pdf.destroy();return;}
               const viewport = page.getViewport({ scale: 0.35 });
               const c = document.createElement('canvas');
-              c.width = viewport.width;
-              c.height = viewport.height;
+              c.width = Math.ceil(viewport.width);
+              c.height = Math.ceil(viewport.height);
+              if(c.width*c.height>3000000) throw new Error('Preview too large');
               await page.render({ canvasContext: c.getContext('2d'), viewport }).promise;
+              if(thisGeneration!==previewGeneration){pdf.destroy();return;}
               const dataUrl = c.toDataURL('image/jpeg', 0.85);
               pageMetaList.push({ fileIndex: fIdx, pageIndex: p - 1, rotation: 0, deleted: false, thumb: dataUrl });
             }
+            await pdf.destroy();
           } catch (e) {
+            console.warn('PDF preview skipped:',e.message);
             pageMetaList.push({ fileIndex: fIdx, pageIndex: 0, rotation: 0, deleted: false, thumb: null });
           }
         } else if (file.type.startsWith('image/')) {
-          const url = URL.createObjectURL(file);
+          const url = URL.createObjectURL(file);temporaryImageUrls.push(url);
           pageMetaList.push({ fileIndex: fIdx, pageIndex: 0, rotation: 0, deleted: false, thumb: url });
         } else {
           pageMetaList.push({ fileIndex: fIdx, pageIndex: 0, rotation: 0, deleted: false, thumb: null });
         }
       }
 
+      if(thisGeneration!==previewGeneration)return;
       grid.innerHTML = pageMetaList.map((m, i) => `
         <div class="bg-white rounded-xl p-2 border border-slate-200 shadow-2xs flex flex-col items-center">
           <div class="w-full aspect-[3/4] bg-slate-50 rounded-lg overflow-hidden flex items-center justify-center border border-slate-100 mb-2">
@@ -1293,15 +1294,24 @@
       }
       const pdfDoc = await PDFLib.PDFDocument.create();
       const page = pdfDoc.addPage([595.28, 841.89]);
-      const sampleText = `پاک پی ڈی ایف پرو (PakPDF Studio Pro)\n\nیہ ایک باضابطہ نمونہ پی ڈی ایف فائل ہے جس میں اردو نستعلیق اور انگریزی تحریر شامل ہے۔\nتمام ۳۳ ٹولز انٹرنیشنل اسٹینڈرڈ کے مطابق مکمل طور پر کام کرتے ہیں۔\nPlease verify your output before using it.`;
+      const sampleText = `پاک پی ڈی ایف پرو (PakPDF Studio Pro)\n\nیہ ایک باضابطہ نمونہ پی ڈی ایف فائل ہے جس میں اردو نستعلیق اور انگریزی تحریر شامل ہے۔\nبراہ کرم نتیجہ چیک کریں؛ بعض تبدیلیاں محدود ہیں۔\nPlease verify your output before using it.`;
       const rendered = await renderUrduTextToPngBytes(sampleText, { width: 2400, fontSize: 64, padding: 80 });
       const pngImage = await pdfDoc.embedPng(rendered.bytes);
-      const dims = pngImage.scaleToFit(515, 740);
+      const dims = pngImage.scaleToFit(515, 650);
       page.drawImage(pngImage, {
         x: (595.28 - dims.width) / 2,
         y: 841.89 - dims.height - 50,
         width: dims.width,
         height: dims.height
+      });
+      // PDF extraction/conversion demos must contain actual selectable text,
+      // rather than only a picture of text.
+      const font=await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+      page.drawText('PakPDF demo selectable text for testing PDF tools.',{
+        x:45,y:65,size:11,font,color:PDFLib.rgb(0.12,0.18,0.28)
+      });
+      page.drawText('This sample is not your own file. Check all output before use.',{
+        x:45,y:47,size:10,font,color:PDFLib.rgb(0.12,0.18,0.28)
       });
       return await pdfDoc.save();
     }
@@ -1314,14 +1324,29 @@
     }
 
     async function loadDemoFileForCurrentTool() {
+      if (!activeTool) return;
+      const id=activeTool.id;
+      if (['jpg-to-pdf','scan-to-pdf','ocr-pdf'].includes(id)) {
+        const canvas=document.createElement('canvas');canvas.width=900;canvas.height=550;
+        const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,900,550);
+        ctx.fillStyle='#162338';ctx.font='bold 54px Arial';ctx.fillText('PakPDF DEMO PAGE',55,110);
+        ctx.font='32px Arial';ctx.fillText('English OCR sample: SAMPLE 123',55,185);
+        ctx.fillText('Use your own files for real conversion.',55,270);
+        const blob=await new Promise((resolve,reject)=>canvas.toBlob(x=>x?resolve(x):reject(new Error('Could not prepare demo image.')),'image/png'));
+        return addFilesToWorkspace([new File([blob],'PakPDF-demo.png',{type:'image/png'})]);
+      }
+      if(['word-to-pdf','powerpoint-to-pdf','html-to-pdf','excel-to-pdf'].includes(id)) {
+        const content='PakPDF Demo\nThis is a demo document, not your own file.\nنمونہ متن';
+        const filename=id==='html-to-pdf'?'PakPDF-demo.html':id==='excel-to-pdf'?'PakPDF-demo.csv':'PakPDF-demo.txt';
+        const text=id==='excel-to-pdf'?'Name,Status\nPakPDF,Demo':id==='html-to-pdf'?'<h1>PakPDF Demo</h1><p>Sample page.</p>':content;
+        return addFilesToWorkspace([new File([text],filename,{type:'text/plain'})]);
+      }
       const bytes = await createSampleUrduPdfBytes();
       const demoFile = new File([bytes], 'PakPDF-Demo-Document.pdf', { type: 'application/pdf' });
-      if (activeTool && activeTool.id === 'merge-pdf') {
-        const demoFile2 = new File([bytes], 'PakPDF-Demo-Part2.pdf', { type: 'application/pdf' });
-        await addFilesToWorkspace([demoFile, demoFile2]);
-      } else {
-        await addFilesToWorkspace([demoFile]);
+      if (activeTool.id === 'merge-pdf' || activeTool.id === 'compare-pdf') {
+        return addFilesToWorkspace([demoFile, new File([bytes], 'PakPDF-Demo-Part2.pdf', { type: 'application/pdf' })]);
       }
+      return addFilesToWorkspace([demoFile]);
     }
 
     // Parse page ranges helper e.g. "1, 2-4, 6" -> 0-based page indices
@@ -1352,391 +1377,38 @@
       return Array.from(indices).sort((a, b) => a - b);
     }
 
-    // Main execution function
+    // The audited runTool dispatcher is defined below. Legacy simulated converters removed.
     async function executeActiveTool() {
-      if (!activeTool) return;
-      const progressBox = document.getElementById('processProgressBox');
-      const progressBar = document.getElementById('processProgressBar');
-      const statusText = document.getElementById('processStatusText');
-      const percentText = document.getElementById('processPercentText');
-      const resultBox = document.getElementById('outputResultBox');
-      const textPreviewWrap = document.getElementById('outputTextPreviewWrapper');
-      const textPreview = document.getElementById('outputTextPreview');
-
-      progressBox.classList.remove('hidden');
-      resultBox.classList.add('hidden');
-      textPreviewWrap.classList.add('hidden');
-      progressBar.style.width = '25%';
-      statusText.textContent = `Processing ${activeTool.name}...`;
-      percentText.textContent = '25%';
-
-      try {
-        const textCreationTools = ['word-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf'];
-        if (uploadedFiles.length === 0 && !textCreationTools.includes(activeTool.id)) {
-          await loadDemoFileForCurrentTool();
-        }
-
-        progressBar.style.width = '55%';
-        percentText.textContent = '55%';
-
-        let outBlob = null;
-        let outFilename = `${activeTool.id}-output.pdf`;
-        let previewTextContent = '';
-
-        const customTextEl = document.getElementById('ctrlUrduText');
-        let customText = customTextEl ? customTextEl.value : '';
-
-        // 1. WORD TO PDF (With real docx & text file parsing in 300 DPI)
-        if (activeTool.id === 'word-to-pdf') {
-          let textToRender = customText;
-          if (uploadedFiles.length > 0) {
-            const upFile = uploadedFiles[0];
-            if (upFile.name.toLowerCase().endsWith('.docx') && window.mammoth) {
-              const arrayBuf = await upFile.arrayBuffer();
-              const result = await mammoth.extractRawText({ arrayBuffer: arrayBuf });
-              textToRender = result.value || customText;
-            } else if (upFile.name.toLowerCase().endsWith('.txt')) {
-              textToRender = await upFile.text();
-            }
-          }
-          const pdfBytes = await convertTextToPdfDocument(textToRender, 'Word to PDF');
-          outBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-          outFilename = 'word-converted-UltraHD.pdf';
-        }
-
-        // 2. POWERPOINT TO PDF (4K UHD Widescreen)
-        else if (activeTool.id === 'powerpoint-to-pdf') {
-          const pdfDoc = await PDFLib.PDFDocument.create();
-          const page = pdfDoc.addPage([841.89, 595.28]); // Widescreen
-          const rendered = await renderUrduTextToPngBytes(customText || 'پریزنٹیشن سلائیڈ', {
-            width: 3200, // 4K UHD resolution
-            fontSize: 84,
-            align: 'center',
-            padding: 100
-          });
-          const pngImg = await pdfDoc.embedPng(rendered.bytes);
-          const dims = pngImg.scaleToFit(780, 520);
-          page.drawImage(pngImg, {
-            x: (841.89 - dims.width) / 2,
-            y: (595.28 - dims.height) / 2,
-            width: dims.width,
-            height: dims.height
-          });
-          outBlob = new Blob([await pdfDoc.save()], { type: 'application/pdf' });
-          outFilename = 'presentation-UltraHD.pdf';
-        }
-
-        // 3. HTML TO PDF
-        else if (activeTool.id === 'html-to-pdf') {
-          let htmlContent = customText;
-          if (uploadedFiles.length > 0 && uploadedFiles[0].name.toLowerCase().endsWith('.html')) {
-            htmlContent = await uploadedFiles[0].text();
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = htmlContent;
-            htmlContent = tempDiv.innerText || tempDiv.textContent;
-          }
-          const pdfBytes = await convertTextToPdfDocument(htmlContent, 'HTML to PDF');
-          outBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-          outFilename = 'webpage-UltraHD.pdf';
-        }
-
-        // 4. TRANSLATE PDF
-        else if (activeTool.id === 'translate-pdf') {
-          const translatedText = `=== ترجمہ شدہ دستاویز (Urdu Translation) ===\n\n` + (customText || 'ترجمہ شدہ متن یہاں دستیاب ہے');
-          const pdfBytes = await convertTextToPdfDocument(translatedText, 'Translated Document');
-          outBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-          outFilename = 'translated-document-UltraHD.pdf';
-        }
-
-        // 5. JPG / SCAN TO PDF (Crisp image preservation)
-        else if (activeTool.id === 'jpg-to-pdf' || activeTool.id === 'scan-to-pdf') {
-          const pdfDoc = await PDFLib.PDFDocument.create();
-          let addedImage = false;
-          for (const f of uploadedFiles) {
-            if (f.type.startsWith('image/')) {
-              const imgBytes = await f.arrayBuffer();
-              const img = f.type.includes('png') ? await pdfDoc.embedPng(imgBytes) : await pdfDoc.embedJpg(imgBytes);
-              const page = pdfDoc.addPage([595.28, 841.89]);
-              const dims = img.scaleToFit(535, 780);
-              page.drawImage(img, {
-                x: (595.28 - dims.width) / 2,
-                y: (841.89 - dims.height) / 2,
-                width: dims.width,
-                height: dims.height
-              });
-              addedImage = true;
-            }
-          }
-          if (!addedImage) {
-            const fallbackBytes = await createSampleUrduPdfBytes();
-            outBlob = new Blob([fallbackBytes], { type: 'application/pdf' });
-          } else {
-            outBlob = new Blob([await pdfDoc.save()], { type: 'application/pdf' });
-          }
-          outFilename = 'scanned-document-UltraHD.pdf';
-        }
-
-        // 6. PDF TO JPG (Browser processing Print Quality, scale 3.5, 98% quality)
-        else if (activeTool.id === 'pdf-to-jpg') {
-          const file = uploadedFiles[0];
-          const arrayBuffer = await file.arrayBuffer();
-          const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-          const zip = new JSZip();
-          const renderScale = 3.5; // ~250-300 DPI crystal clear resolution
-
-          if (pdf.numPages === 1) {
-            const page = await pdf.getPage(1);
-            const viewport = page.getViewport({ scale: renderScale });
-            const c = document.createElement('canvas');
-            c.width = viewport.width;
-            c.height = viewport.height;
-            const ctx = c.getContext('2d', { alpha: false });
-            ctx.imageSmoothingEnabled = true;
-            ctx.imageSmoothingQuality = 'high';
-            await page.render({ canvasContext: ctx, viewport }).promise;
-            outBlob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', 0.98));
-            outFilename = 'pdf-page-1-UltraHD.jpg';
-          } else {
-            for (let p = 1; p <= pdf.numPages; p++) {
-              statusText.textContent = `Rendering page ${p} of ${pdf.numPages} in Ultra HD...`;
-              const page = await pdf.getPage(p);
-              const viewport = page.getViewport({ scale: renderScale });
-              const c = document.createElement('canvas');
-              c.width = viewport.width;
-              c.height = viewport.height;
-              const ctx = c.getContext('2d', { alpha: false });
-              ctx.imageSmoothingEnabled = true;
-              ctx.imageSmoothingQuality = 'high';
-              await page.render({ canvasContext: ctx, viewport }).promise;
-              const imgBlob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', 0.98));
-              zip.file(`page-${p}-UltraHD.jpg`, imgBlob);
-            }
-            outBlob = await zip.generateAsync({ type: 'blob' });
-            outFilename = 'pdf-all-pages-UltraHD.zip';
-          }
-        }
-
-        // 7. PDF TO WORD (Word-Compatible HTML with Embedded Noto Nastaliq & UTF-8)
-        else if (activeTool.id === 'pdf-to-word') {
-          const file = uploadedFiles[0];
-          const extractedText = await extractTextFromPdfFile(file);
-          previewTextContent = extractedText || 'کوئی تحریر نہیں مل سکی';
-          textPreviewWrap.classList.remove('hidden');
-          textPreview.value = previewTextContent;
-
-          const paragraphsHtml = previewTextContent
-            .split(/\r?\n/)
-            .map(line => line.trim() ? `<p>${line}</p>` : '<p>&nbsp;</p>')
-            .join('\n');
-
-          const wordDocumentHtml = `
-            <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-            <head>
-              <meta charset='utf-8'>
-              <title>Converted Document</title>
-              <style>
-                @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
-                body {
-                  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Segoe UI', Tahoma, Arial, sans-serif;
-                  font-size: 14pt;
-                  line-height: 2.2;
-                  direction: rtl;
-                  text-align: right;
-                  padding: 20pt;
-                }
-                p { margin-bottom: 8pt; }
-              </style>
-            </head>
-            <body>
-              ${paragraphsHtml}
-            </body>
-            </html>
-          `;
-          outBlob = new Blob([wordDocumentHtml], { type: 'application/msword;charset=utf-8' });
-          outFilename = 'document-converted.doc';
-        }
-
-        // 8. PDF TO EXCEL
-        else if (activeTool.id === 'pdf-to-excel') {
-          const file = uploadedFiles[0];
-          const text = await extractTextFromPdfFile(file);
-          const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
-          
-          const wb = XLSX.utils.book_new();
-          const tableData = [
-            ['نمبر شمار (Index)', 'تفصیل (PDF Extracted Content)', 'Status']
-          ];
-          lines.slice(0, 100).forEach((line, idx) => {
-            tableData.push([String(idx + 1), line, 'Extracted']);
-          });
-
-          const ws = XLSX.utils.aoa_to_sheet(tableData);
-          XLSX.utils.book_append_sheet(wb, ws, 'PDF_Data');
-          const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-          outBlob = new Blob([wbout], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-          outFilename = 'extracted-data.xlsx';
-        }
-
-        // 9. OCR / AI SUMMARIZER / MARKDOWN / COMPARE
-        else if (['ocr-pdf', 'ai-summarizer', 'pdf-to-markdown', 'compare-pdf'].includes(activeTool.id)) {
-          let extracted = '';
-          if (uploadedFiles.length > 0 && uploadedFiles[0].name.toLowerCase().endsWith('.pdf')) {
-            extracted = await extractTextFromPdfFile(uploadedFiles[0]);
-          }
-          if (!extracted) {
-            extracted = customText || 'پاک پی ڈی ایف پرو نمونہ تحریر: تمام فونٹس اور الفاظ بالکل محفوظ ہیں۔';
-          }
-
-          if (activeTool.id === 'ai-summarizer') {
-            previewTextContent = `=== AI Executive Summary (خلاصہ دستاویز) ===\n\n• مکمل تجزیہ: دستاویز کے تمام اہم نکات اخذ کر لیے گئے ہیں۔\n• فونٹ کی صحت: اردو نستعلیق اور انگریزی الفاظ 100% درست ہیں۔\n\n[تفصیلی متن]:\n` + extracted;
-          } else if (activeTool.id === 'compare-pdf') {
-            previewTextContent = `=== PDF Comparison Report (موازنہ رپورٹ) ===\n\nفائلز کی تعداد: ${uploadedFiles.length}\nتمام صفحات کی حالت: تصدیق شدہ\n\n` + extracted;
-          } else {
-            previewTextContent = extracted;
-          }
-
-          textPreviewWrap.classList.remove('hidden');
-          textPreview.value = previewTextContent;
-
-          const ext = activeTool.id === 'pdf-to-markdown' ? 'md' : 'txt';
-          outFilename = `${activeTool.id}-output.${ext}`;
-          outBlob = new Blob(['\uFEFF' + previewTextContent], { type: 'text/plain;charset=utf-8' });
-        }
-
-        // 10. SPLIT PDF
-        else if (activeTool.id === 'split-pdf' || activeTool.id === 'extract-pages') {
-          const file = uploadedFiles[0];
-          const srcBytes = await file.arrayBuffer();
-          const srcDoc = await PDFLib.PDFDocument.load(srcBytes, { ignoreEncryption: true });
-          const totalPages = srcDoc.getPageCount();
-          const rangeVal = document.getElementById('ctrlPageRange')?.value || '1';
-          const targetIndices = parsePageRange(rangeVal, totalPages);
-
-          const outPdf = await PDFLib.PDFDocument.create();
-          const copied = await outPdf.copyPages(srcDoc, targetIndices.length ? targetIndices : [0]);
-          copied.forEach(p => outPdf.addPage(p));
-          outBlob = new Blob([await outPdf.save()], { type: 'application/pdf' });
-          outFilename = `${activeTool.id}-pages.pdf`;
-        }
-
-        // 11. REMOVE PAGES
-        else if (activeTool.id === 'remove-pages') {
-          const file = uploadedFiles[0];
-          const srcBytes = await file.arrayBuffer();
-          const srcDoc = await PDFLib.PDFDocument.load(srcBytes, { ignoreEncryption: true });
-          const totalPages = srcDoc.getPageCount();
-          const rangeVal = document.getElementById('ctrlPageRange')?.value || '1';
-          const toRemove = new Set(parsePageRange(rangeVal, totalPages));
-          const keepIndices = [];
-          for (let i = 0; i < totalPages; i++) {
-            if (!toRemove.has(i)) keepIndices.push(i);
-          }
-
-          const outPdf = await PDFLib.PDFDocument.create();
-          const copied = await outPdf.copyPages(srcDoc, keepIndices.length ? keepIndices : [0]);
-          copied.forEach(p => outPdf.addPage(p));
-          outBlob = new Blob([await outPdf.save()], { type: 'application/pdf' });
-          outFilename = 'pages-removed.pdf';
-        }
-
-        // 12. OTHER CORE PDF MANIPULATION
-        else {
-          const outPdf = await PDFLib.PDFDocument.create();
-          for (const file of uploadedFiles) {
-            if (file.name.toLowerCase().endsWith('.pdf')) {
-              const srcBytes = await file.arrayBuffer();
-              const srcDoc = await PDFLib.PDFDocument.load(srcBytes, { ignoreEncryption: true });
-              const indices = srcDoc.getPageIndices();
-              const copied = await outPdf.copyPages(srcDoc, indices);
-              copied.forEach(p => outPdf.addPage(p));
-            }
-          }
-          if (outPdf.getPageCount() === 0) {
-            const sampleBytes = await createSampleUrduPdfBytes();
-            const srcDoc = await PDFLib.PDFDocument.load(sampleBytes);
-            const [p] = await outPdf.copyPages(srcDoc, [0]);
-            outPdf.addPage(p);
-          }
-
-          const pages = outPdf.getPages();
-
-          if (activeTool.id === 'rotate-pdf') {
-            const angle = parseInt(document.getElementById('ctrlRotationAngle')?.value || '90', 10);
-            pages.forEach(p => p.setRotation(PDFLib.degrees(angle)));
-          } else if (activeTool.id === 'add-watermark' || activeTool.id === 'sign-pdf' || activeTool.id === 'edit-pdf') {
-            const stampRender = await renderUrduTextToPngBytes(customText || 'پاک پی ڈی ایف', {
-              width: 1400, // Ultra HD stamp
-              fontSize: 80,
-              color: activeTool.id === 'sign-pdf' ? '#1e3a8a' : '#dc2626',
-              align: 'center',
-              padding: 50
-            });
-            const stampPng = await outPdf.embedPng(stampRender.bytes);
-            const dims = stampPng.scaleToFit(260, 120);
-            pages.forEach(p => {
-              const { width, height } = p.getSize();
-              p.drawImage(stampPng, {
-                x: (width - dims.width) / 2,
-                y: activeTool.id === 'sign-pdf' ? 50 : (height - dims.height) / 2,
-                width: dims.width,
-                height: dims.height,
-                opacity: activeTool.id === 'add-watermark' ? 0.35 : 0.95
-              });
-            });
-          } else if (activeTool.id === 'add-page-numbers') {
-            const format = document.getElementById('ctrlPageNumFormat')?.value || 'ur';
-            for (let i = 0; i < pages.length; i++) {
-              const textStr = format === 'ur' ? `صفحہ ${i + 1}` : `Page ${i + 1} of ${pages.length}`;
-              const numRender = await renderUrduTextToPngBytes(textStr, { width: 800, fontSize: 50, align: 'center', padding: 20 });
-              const numPng = await outPdf.embedPng(numRender.bytes);
-              const dims = numPng.scaleToFit(120, 35);
-              const { width } = pages[i].getSize();
-              pages[i].drawImage(numPng, { x: (width - dims.width) / 2, y: 15, width: dims.width, height: dims.height });
-            }
-          }
-
-          const finalBytes = await outPdf.save();
-          outBlob = new Blob([finalBytes], { type: 'application/pdf' });
-          outFilename = `${activeTool.id}-output.pdf`;
-        }
-
-        // Store active result globally
-        currentResultBlob = outBlob;
-        currentResultFilename = outFilename;
-
-        progressBar.style.width = '100%';
-        percentText.textContent = '100%';
-        statusText.textContent = 'Completed!';
-
-        document.getElementById('outputResultTitle').textContent = `${activeTool.name} Completed!`;
-        document.getElementById('outputResultMeta').textContent = `Ready to download: ${outFilename} (${(outBlob.size / 1024).toFixed(1)} KB)`;
-        resultBox.classList.remove('hidden');
-
-        // Automatically trigger download
-        downloadBlob(outBlob, outFilename);
-
-      } catch (err) {
-        console.error(err);
-        showToast('Error processing file: ' + err.message, 'error');
-      }
+      throw new Error('Tool dispatcher did not initialize; please reload the page.');
     }
 
-    function copyOutputText() {
+    async function copyOutputText() {
       const el = document.getElementById('outputTextPreview');
       if (!el) return;
-      el.select();
-      navigator.clipboard.writeText(el.value);
-      showToast('Text copied to clipboard!', 'success');
+      try {
+        if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(el.value);
+        else { el.select(); if (!document.execCommand('copy')) throw new Error('Copy unsupported by browser'); }
+        showToast('Text copied!', 'success');
+      } catch (e) { showToast('Could not copy automatically. Please select the text and copy manually.', 'error'); }
     }
 
     async function startCameraScan() {
       const video = document.getElementById('scannerVideo');
       try {
-        mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment', width: { ideal: 3840, min: 1920 }, height: { ideal: 2160, min: 1080 } } });
+        if (!navigator.mediaDevices?.getUserMedia) throw new Error('Camera requires HTTPS and a compatible browser.');
+        stopCameraScan();
+        try {
+          mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' }, width: { ideal: 1920 }, height: { ideal: 1080 } }, audio:false });
+        } catch (firstError) {
+          // Lower-resolution laptop webcams and USB cameras must still work.
+          mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio:false });
+        }
         video.srcObject = mediaStream;
         video.classList.remove('hidden');
+        await video.play();
       } catch (e) {
-        showToast('Camera access not available on this device.', 'error');
+        stopCameraScan();
+        showToast('Camera unavailable: ' + (e.message||'Check browser permissions and HTTPS.'), 'error');
       }
     }
 
@@ -1746,11 +1418,13 @@
         showToast('Start the camera first!', 'error');
         return;
       }
+      if (video.readyState < 2 || !video.videoWidth) { showToast('Wait for the camera picture before capturing.', 'error'); return; }
       const c = document.createElement('canvas');
       c.width = video.videoWidth || 800;
       c.height = video.videoHeight || 600;
       c.getContext('2d').drawImage(video, 0, 0);
       c.toBlob(blob => {
+        if (!blob) { showToast('Could not capture camera image.', 'error'); return; }
         const file = new File([blob], `Scan-${Date.now()}-HD.jpg`, { type: 'image/jpeg' });
         addFilesToWorkspace([file]);
       }, 'image/jpeg', 0.98);
@@ -1770,7 +1444,7 @@
     });
   </script>
   <script>
-/* PakPDF 1.2: verified client-side operations and truthful limitations.
+/* PakPDF 1.4: audited client-side operations and truthful limitations.
    Retains original page design. PDF files do not leave the browser through this code. */
 (() => {
 'use strict';
@@ -1778,7 +1452,8 @@ const unsupported = {
   'protect-pdf': 'Real password encryption is not supported by the bundled PDF library. No unprotected PDF has been generated. Please use a tool with genuine PDF encryption.',
   'unlock-pdf': 'Encrypted/password-protected PDFs cannot be reliably unlocked by the bundled browser library. No false unlocked PDF will be generated.',
   'pdf-to-pdfa': 'ISO-conformant PDF/A requires font embedding, colour profiles and validation. This browser version cannot certify PDF/A.',
-  'translate-pdf': 'Reliable Urdu-English translation requires a translation model or service that is not installed. The app will not invent a translation.'
+  'translate-pdf': 'Reliable Urdu-English translation requires a translation model or service that is not installed. The app will not invent a translation.',
+  'redact-pdf': 'Automated redaction is disabled for safety: the current client-side PDF text matching may miss characters, scans and annotations. Do not rely on visual black boxes for confidential data.'
 };
 const toolNames = {
   'ai-summarizer': ['Text Summarizer (Local)', 'Extractive summary based on PDF text. Not a generative AI model.'],
@@ -1789,7 +1464,7 @@ const toolNames = {
   'html-to-pdf': ['HTML Text to PDF', 'Convert visible HTML text into PDF; complex web layout is not preserved.'],
   'repair-pdf': ['Re-save PDF', 'Re-save readable PDF files; cannot recover corrupted or unreadable PDFs.'],
   'compress-pdf': ['Compress PDF (Image)', 'Rasterize pages to reduce size where possible. Searchable text and vector detail are lost.'],
-  'redact-pdf': ['Redact Searchable Text', 'Permanently remove matching searchable text by flattening pages; inspect the output for missed scanned text.'],
+  'redact-pdf': ['Redact PDF (Unavailable)', 'Disabled for safety; use a trusted PDF editor with verified content removal.'],
   'sign-pdf': ['Add Visual Signature', 'Place a visible typed name onto the PDF. This is not identity verification or a cryptographic digital signature.'],
   'ocr-pdf': ['OCR / Extract Text (English)', 'Extract selectable text. Scanned OCR uses an optional English OCR engine loaded in your browser.'],
   'organize-pdf': ['Reorder PDF Pages', 'Specify a custom page order such as 3,1,2.'],
@@ -1805,8 +1480,15 @@ function escapeHTML(s) { return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;
 function requireFiles(n=1) { if (uploadedFiles.length<n) throw new Error(`Please upload ${n} ${n===1?'file':'files'} before processing. Use Load Demo File only for an intentional demo.`); }
 function requireExt(file, suffixes) { if (!suffixes.some(ext=>file.name.toLowerCase().endsWith(ext))) throw new Error(`Expected: ${suffixes.join(', ')}. Selected: ${file.name}`); }
 function getControl(id, fallback='') { return $(id)?.value ?? fallback; }
-async function loadPdf(file) { requireExt(file,['.pdf']); return PDFLib.PDFDocument.load(await file.arrayBuffer()); }
-async function pdfJs(file) { requireExt(file,['.pdf']); if (!window.pdfjsLib) throw new Error('PDF.js is unavailable. Check your internet connection.'); return pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise; }
+async function pdfBytes(file) {
+  requireExt(file,['.pdf']);
+  const buf=await file.arrayBuffer();
+  const head=new Uint8Array(buf,0,Math.min(5,buf.byteLength));
+  if(head.length<5||String.fromCharCode(...head)!=='%PDF-') throw new Error('File does not contain a valid PDF header.');
+  return buf;
+}
+async function loadPdf(file) { return PDFLib.PDFDocument.load(await pdfBytes(file)); }
+async function pdfJs(file) { requireExt(file,['.pdf']); if (!window.pdfjsLib) throw new Error('PDF.js is unavailable. Check your internet connection.'); return pdfjsLib.getDocument({data:await pdfBytes(file)}).promise; }
 async function asBlob(bytes,mime='application/pdf') { return new Blob([bytes],{type:mime}); }
 async function text(file) { if (file.name.toLowerCase().endsWith('.pdf')) return extractTextFromPdfFile(file); return file.text(); }
 function printableText(value) { return String(value || '').replace(/^--- Page \d+ ---$/gm,'').trim(); }
@@ -1832,6 +1514,7 @@ async function clonePages(file,idx) {
 async function renderPage(page,scale=2){
   const viewport=page.getViewport({scale});const canvas=document.createElement('canvas');
   canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);
+  if(canvas.width*canvas.height>24000000||canvas.width>12000||canvas.height>12000) throw new Error('PDF page would exceed the browser image-memory limit. Try a smaller PDF or lower-resolution export.');
   const context=canvas.getContext('2d',{alpha:false});context.fillStyle='#fff';context.fillRect(0,0,canvas.width,canvas.height);
   await page.render({canvasContext:context,viewport}).promise;return {canvas,viewport};
 }
@@ -1956,6 +1639,7 @@ async function runTool(id){
      return {blob:await zip.generateAsync({type:'blob'}),filename:'split-pages.zip'};
    }
    const selected=validIndices(range,total,{order:id==='organize-pdf',required:id==='extract-pages'});
+   if(id==='organize-pdf' && selected.length!==total) throw new Error('Reorder must include every page exactly once (e.g. 3,1,2). Use Extract Pages to create a subset.');
    const indices=id==='remove-pages'?src.getPageIndices().filter(i=>!selected.includes(i)):selected;
    if(!indices.length)throw new Error('Cannot produce a PDF with zero pages.');
    const out=await clonePages(data[0],indices);return pdfOut(await out.save(),`${id}-output.pdf`);
@@ -1977,7 +1661,7 @@ async function runTool(id){
    const bytes=XLSX.write(wb,{bookType:'xlsx',type:'array'});return {blob:new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),filename:'pdf-text.xlsx'};
  }
  if(id==='pdf-to-markdown'){
-   const t=printableText(await text(data[0]));return txtOut(t.split('\n').map(s=>s.trim()).filter(Boolean).map(s=>s.length<80?`## ${s}`:s).join('\n\n'),'document.md');
+   const t=printableText(await text(data[0]));if(!t)throw new Error('This PDF contains no selectable text. Run OCR for scanned pages.');return txtOut(t.split('\n').map(s=>s.trim()).filter(Boolean).map(s=>s.length<80?`## ${s}`:s).join('\n\n'),'document.md');
  }
  if(id==='compare-pdf'){
    const [a,b]=await Promise.all(data.slice(0,2).map(pdfTextPages));
@@ -2002,6 +1686,7 @@ async function runTool(id){
    if(!window.Tesseract)throw new Error('Scanned OCR engine unavailable. Please use a supported browser with internet access.');
    if (!isPdf && !data[0].type.startsWith('image/')) throw new Error('OCR accepts PDF, JPG or PNG images only.');
    const src=isPdf?await pdfJs(data[0]):null;
+   if(src?.numPages>20)throw new Error('Scanned PDF OCR is limited to 20 pages per run to protect browser memory. Split the document first.');
    const imgs=[];if(src){for(let i=1;i<=src.numPages;i++){const {canvas}=await renderPage(await src.getPage(i),1.7);imgs.push(canvas);}}else imgs.push(data[0]);
    let result='';for(let i=0;i<imgs.length;i++){const r=await Tesseract.recognize(imgs[i],'eng');result+=`Page ${i+1}\n${r.data.text}\n\n`;}
    if(!result.trim())throw new Error('OCR could not recognize text.');return txtOut(result,'ocr-english.txt');
@@ -2010,11 +1695,6 @@ async function runTool(id){
    const {bytes}=await rasterPdf(data[0],{scale:1.3,quality:.62});
    if(bytes.length>=data[0].size)throw new Error('Recompressing this PDF would increase its size. No modified file generated. Try an image-heavy PDF.');
    return pdfOut(bytes,'compressed-image-only.pdf');
- }
- if(id==='redact-pdf'){
-   const keyword=getControl('ctrlRedact').trim();if(!keyword)throw new Error('Enter the text to redact.');
-   const {bytes,matches}=await rasterPdf(data[0],{scale:2.0,quality:.93,redact:keyword});
-   return {...pdfOut(bytes,'redacted-flattened.pdf'),preview:`Removed ${matches} matching selectable-text items. Verify all pages, especially scans, images and overlapping elements.`};
  }
  // Re-save and visual editing operations
  const out=['pdf-forms','repair-pdf'].includes(id) ? await loadPdf(data[0]) : await clonePages(data[0]);const pages=out.getPages();
@@ -2047,33 +1727,57 @@ async function runTool(id){
  else if(id!=='repair-pdf')throw new Error('Tool operation not implemented safely.');
  return pdfOut(await out.save(),`${id}-processed.pdf`);
 }
-// Explicitly replace the original, which previously generated demo material without asking.
+// Invalidate pending work when a user switches tools, resets files, or uploads another file.
+let workGeneration=0;
+const originalOpenTool=openToolById;
+openToolById=function(id){
+  workGeneration++;
+  stopCameraScan();
+  const btn=$('executeToolBtn');if(btn)btn.disabled=false;
+  return originalOpenTool(id);
+};
+const originalReset=resetWorkspaceFiles;
+resetWorkspaceFiles=function(){workGeneration++;originalReset();const b=$('executeToolBtn');if(b)b.disabled=!!(activeTool&&unsupported[activeTool.id]);};
+// Explicitly replace the old demo-based dispatcher.
 executeActiveTool = async function(){
  if(!activeTool)return;
  const button=$('executeToolBtn');if(button.disabled)return;
+ const runId=++workGeneration;
  const result=$('outputResultBox'),progress=$('processProgressBox'),status=$('processStatusText'),bar=$('processProgressBar'),percent=$('processPercentText');
  result.classList.add('hidden');$('outputTextPreviewWrapper').classList.add('hidden');
  currentResultBlob=null;progress.classList.remove('hidden');button.disabled=true;status.textContent='Working on your file...';bar.style.width='25%';percent.textContent='25%';
  try{
-   const output=await runTool(activeTool.id);if(!output?.blob||!output.blob.size)throw new Error('No valid result produced.');
+   const selectedToolId=activeTool.id;
+   const output=await runTool(selectedToolId);
+   if(runId!==workGeneration)return;
+   if(!output?.blob||!output.blob.size)throw new Error('No valid result produced.');
+   if(output.filename.endsWith('.pdf')){
+     const head=new Uint8Array(await output.blob.slice(0,5).arrayBuffer());
+     if(String.fromCharCode(...head)!=='%PDF-')throw new Error('Generated output is not a valid PDF header. Nothing has been published.');
+   }
    currentResultBlob=output.blob;currentResultFilename=output.filename;bar.style.width='100%';percent.textContent='100%';status.textContent='Completed';
    $('outputResultTitle').textContent='File ready';$('outputResultMeta').textContent=`${output.filename} — ${(output.blob.size/1024).toFixed(1)} KB`;
    if(output.preview){$('outputTextPreviewWrapper').classList.remove('hidden');$('outputTextPreview').value=output.preview;}
    result.classList.remove('hidden');showToast('File prepared. Use the Download button below.','success');
- }catch(e){console.error(e);status.textContent='Not completed';bar.style.width='0%';percent.textContent='Error';showToast(e.message||String(e),'error');}
- finally{button.disabled=false;}
+ }catch(e){console.error(e);if(runId===workGeneration){status.textContent='Not completed';bar.style.width='0%';percent.textContent='Error';showToast(e.message||String(e),'error');}}
+ finally{if(runId===workGeneration)button.disabled=!!(activeTool&&unsupported[activeTool.id]);}
 };
 const oldControls=renderToolControls;
 renderToolControls=function(tool){oldControls(tool);const target=$('toolDynamicControls');
+ const actionButton=$('executeToolBtn');
+ actionButton.disabled=!!unsupported[tool.id];
+ actionButton.title=unsupported[tool.id]||'';
+ actionButton.style.opacity=unsupported[tool.id]?'0.55':'';
+ $('executeToolBtnLabel').textContent=unsupported[tool.id]?'Unavailable — see explanation above':`${tool.name} — Process File`;
  if(tool.id==='split-pdf'){
    const range=target.querySelector('#ctrlPageRange');
    if(range){range.value='';range.placeholder='Blank = split all pages into separate PDFs';}
  }
- if(tool.id==='organize-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Page order (e.g. 3,1,2)</label><input id="ctrlPageRange" class="w-full p-2 border rounded-xl" placeholder="3,1,2; blank = original order" />');
+ if(tool.id==='organize-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">All page numbers in new order (e.g. 3,1,2)</label><input id="ctrlPageRange" class="w-full p-2 border rounded-xl" placeholder="3,1,2; blank = original order" />');
  if(tool.id==='crop-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Crop margins (points from each edge)</label><input id="ctrlCropMargin" type="number" min="0" value="24" class="w-full p-2 border rounded-xl"/>');
- if(tool.id==='redact-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Exact searchable text to black out (case-insensitive)</label><input id="ctrlRedact" class="w-full p-2 border rounded-xl" placeholder="Sensitive text"/><p class="text-xs text-rose-700 mt-2">Output is flattened to images. You must check it visually; scanned text is not matched.</p>');
+ // Redaction is intentionally disabled; do not display fake redaction controls.
  if(tool.id==='pdf-forms')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Form data (field-name=value, one per line)</label><textarea id="ctrlFormData" rows="4" class="w-full p-2 border rounded-xl" placeholder="Name=Ahmed\nClass=8"></textarea>');
- if(['protect-pdf','unlock-pdf'].includes(tool.id)){const pwd=$('ctrlPassword');if(pwd){pwd.type='password';pwd.value='';pwd.placeholder='Not available in this version';}}
+ if(['protect-pdf','unlock-pdf'].includes(tool.id)){const pwd=$('ctrlPassword');if(pwd)pwd.parentElement.remove();}
  if(unsupported[tool.id])target.insertAdjacentHTML('afterbegin',`<p class="p-3 border border-amber-300 text-amber-950 bg-amber-50 rounded-xl text-sm"><strong>Not available:</strong> ${escapeHTML(unsupported[tool.id])}</p>`);
  const boxes=target.querySelectorAll('div');for(const div of boxes){if(div.textContent.includes('International Standard:'))div.remove();}
 };
@@ -2083,18 +1787,26 @@ updateFileListUI=function(){
  el.replaceChildren();uploadedFiles.forEach((f,i)=>{
    const line=document.createElement('div');line.className='flex items-center justify-between px-3 py-2 rounded-xl bg-white border border-slate-200 text-xs gap-2';
    const label=document.createElement('span');label.className='font-semibold text-slate-800 truncate';label.textContent=`${f.name} (${(f.size/1024).toFixed(1)} KB)`;
-   const remove=document.createElement('button');remove.className='text-red-600 font-bold';remove.textContent='Remove';remove.onclick=()=>{uploadedFiles.splice(i,1);rebuildPageThumbnails();updateFileListUI();};
+   const remove=document.createElement('button');remove.className='text-red-600 font-bold';remove.textContent='Remove';remove.onclick=()=>{workGeneration++;currentResultBlob=null;$('outputResultBox').classList.add('hidden');uploadedFiles.splice(i,1);rebuildPageThumbnails();updateFileListUI();};
    line.append(label,remove);el.append(line);
  });
 };
+function matchesCurrentToolFile(file) {
+  const extension=file.name.toLowerCase();
+  const accept=(activeTool?.accept||'').split(',').map(x=>x.trim().toLowerCase()).filter(Boolean);
+  if(!accept.length)return true;
+  return accept.some(x=>x==='*/*'||(x==='image/*'&&(/\.(jpe?g|png|webp|gif|bmp)$/i.test(file.name)))||extension.endsWith(x));
+}
 addFilesToWorkspace=async function(files){
  if(!activeTool)return;
- const accepted=files.filter(f=>f.size>0&&f.size<=100*1024*1024);
- if(accepted.length!==files.length)showToast('Empty or over-100 MB files skipped.','error');
+ const accepted=files.filter(f=>f.size>0&&f.size<=100*1024*1024&&matchesCurrentToolFile(f));
+ if(accepted.length!==files.length)showToast('Some files were skipped: unsupported format, empty or larger than 100 MB.','error');
  if(!accepted.length)return;
+ workGeneration++;
+ const fileInput=$('wsFileInput');if(fileInput)fileInput.value='';
  uploadedFiles=activeTool.multiple?[...uploadedFiles,...accepted]:[accepted[0]];
  currentResultBlob=null;$('outputResultBox').classList.add('hidden');
- await rebuildPageThumbnails();updateFileListUI();showToast(`${accepted.length} file(s) loaded.`,'success');
+ await rebuildPageThumbnails();updateFileListUI();showToast(`${accepted.length} supported file(s) loaded.`,'success');
 };
 showToast=function(message,type='info'){
  const el=$('toastContainer');const item=document.createElement('div');item.className=`${type==='error'?'bg-rose-700':type==='success'?'bg-emerald-700':'bg-slate-900'} text-white px-4 py-3 rounded-xl shadow-xl text-xs pointer-events-auto`;
