@@ -549,7 +549,7 @@
         </div>
         <div>
           <span class="text-white font-bold text-base">PakPDF Studio Pro</span>
-          <p class="text-xs text-slate-400">Complete 7-Category, 33-Tool Web Suite with Native Font Preservation</p>
+          <p class="text-xs text-slate-400">PDF Browser Suite with Urdu & English Support</p>
         </div>
       </div>
       <div class="text-xs text-center sm:text-right">
@@ -768,6 +768,9 @@
       const lineHeight = Math.round(fontSize * lineHeightMultiplier);
       const totalHeight = Math.max(220, lines.length * lineHeight + padding * 2);
 
+      if (width * totalHeight > 42000000 || totalHeight > 16000) {
+        throw new Error('Text is too long for one image page. Please split it into shorter sections.');
+      }
       canvas.width = width;
       canvas.height = totalHeight;
 
@@ -792,14 +795,16 @@
         ctx2.fillText(line, xPos, padding + idx * lineHeight);
       });
 
-      const dataUrl = canvas.toDataURL('image/png');
-      const base64 = dataUrl.split(',');
-      const binary = atob(base64);
-      const bytes = new Uint8Array(binary.length);
-      for (let i = 0; i < binary.length; i++) {
-        bytes[i] = binary.charCodeAt(i);
-      }
-      return { bytes, width, height: totalHeight, dataUrl };
+      // Blob bytes are already binary PNG data. The old code accidentally sent
+      // an Array to atob(), which produced InvalidCharacterError for signatures,
+      // page numbers, watermarks and Word/Urdu PDF conversion.
+      // Avoid base64 entirely (also avoids large in-memory data URLs).
+      const pngBlob = await new Promise((resolve, reject) => {
+        canvas.toBlob(blob => blob && blob.size
+          ? resolve(blob)
+          : reject(new Error('The browser could not encode the text image. Try shorter text.')), 'image/png');
+      });
+      return { bytes: new Uint8Array(await pngBlob.arrayBuffer()), width, height: totalHeight };
     }
 
     // Multi-page Text to PDF helper in Ultra-HD 300 DPI
@@ -1101,7 +1106,7 @@
             <label class="block text-xs font-bold text-slate-700 mb-1">Text Content (Urdu / English)</label>
             <textarea id="ctrlUrduText" rows="5" dir="rtl" class="w-full p-3 rounded-xl bg-white border border-slate-300 text-sm urdu-input focus:border-indigo-500 focus:outline-none">${
               tool.id === 'add-watermark' ? 'پاک پی ڈی ایف - انتہائی خفیہ' :
-              tool.id === 'sign-pdf' ? 'دستخط: محمد علی (Verified)' : defaultUrduSample
+              tool.id === 'sign-pdf' ? 'آپ کا نام / Your signature' : defaultUrduSample
             }</textarea>
           </div>
         `;
@@ -1154,7 +1159,7 @@
       html += `
         <div class="p-3 rounded-xl bg-indigo-50/80 border border-indigo-100 text-xs text-indigo-900">
           <i class="fa-solid fa-circle-check mr-1 text-emerald-600"></i>
-          <strong>International Standard:</strong> Browser processing ensures text and lines remain 100% sharp and clear.
+          <strong>Browser processing:</strong> Review the result before sharing. Formatting may differ from the source.
         </div>
       `;
       container.innerHTML = html;
@@ -1194,6 +1199,8 @@
       currentResultBlob = null;
       document.getElementById('outputResultBox').classList.add('hidden');
       document.getElementById('processProgressBox').classList.add('hidden');
+      const input = document.getElementById('wsFileInput');
+      if (input) input.value = '';
       updateFileListUI();
     }
 
@@ -1783,7 +1790,7 @@ const toolNames = {
   'repair-pdf': ['Re-save PDF', 'Re-save readable PDF files; cannot recover corrupted or unreadable PDFs.'],
   'compress-pdf': ['Compress PDF (Image)', 'Rasterize pages to reduce size where possible. Searchable text and vector detail are lost.'],
   'redact-pdf': ['Redact Searchable Text', 'Permanently remove matching searchable text by flattening pages; inspect the output for missed scanned text.'],
-  'sign-pdf': ['Add Visual Signature', 'Place a visible typed signature on the PDF. Not a cryptographic digital signature.'],
+  'sign-pdf': ['Add Visual Signature', 'Place a visible typed name onto the PDF. This is not identity verification or a cryptographic digital signature.'],
   'ocr-pdf': ['OCR / Extract Text (English)', 'Extract selectable text. Scanned OCR uses an optional English OCR engine loaded in your browser.'],
   'organize-pdf': ['Reorder PDF Pages', 'Specify a custom page order such as 3,1,2.'],
   'pdf-to-powerpoint': ['PDF to PowerPoint (Images)', 'Make PPTX slides with embedded page images (not editable text).'],
@@ -1811,7 +1818,7 @@ function validIndices(s,total,{order=false,required=false}={}) {
   const found=[];
   for (const part of spec.split(/[,\s]+/)) {
     if (!/^\d+(-\d+)?$/.test(part)) throw new Error('Invalid page range: '+part);
-    const [s0,e0]=part.split('-').map(Number); const last=e0||s0;
+    const [s0,e0]=part.split('-').map(Number); const last=part.includes('-')?e0:s0;
     if(s0<1||s0>total||last<1||last>total||last<s0) throw new Error(`Page outside 1–${total}: ${part}`);
     for(let i=s0;i<=last;i++) if(!found.includes(i-1))found.push(i-1);
   }
@@ -1975,6 +1982,7 @@ async function runTool(id){
  if(id==='compare-pdf'){
    const [a,b]=await Promise.all(data.slice(0,2).map(pdfTextPages));
    const one=a.join('\n').replace(/\s+/g,' ').trim(),two=b.join('\n').replace(/\s+/g,' ').trim();
+   if (!one && !two) throw new Error('Both PDFs contain no selectable text. Image-only files cannot be meaningfully compared with this text tool.');
    const report=`PDF COMPARISON\nFile A: ${data[0].name}, ${a.length} page(s)\nFile B: ${data[1].name}, ${b.length} page(s)\nText exactly matches: ${one===two?'YES':'NO'}\n\n--- A text ---\n${one}\n\n--- B text ---\n${two}`;
    return txtOut(report,'comparison.txt');
  }
@@ -1987,9 +1995,13 @@ async function runTool(id){
    return txtOut('LOCAL EXTRACTIVE SUMMARY (not AI-generated)\n\n'+chosen.map(x=>'• '+x.s).join('\n'),'summary.txt');
  }
  if(id==='ocr-pdf'){
-   const original=await text(data[0]);if(printableText(original).length>25)return txtOut(original,'extracted-text.txt');
+   const isPdf=/\.pdf$/i.test(data[0].name);
+   // Never treat raw PNG/JPG bytes as text, even when File.text() returns characters.
+   const original=isPdf?await extractTextFromPdfFile(data[0]):'';
+   if(isPdf&&printableText(original).length>25)return txtOut(original,'extracted-text.txt');
    if(!window.Tesseract)throw new Error('Scanned OCR engine unavailable. Please use a supported browser with internet access.');
-   const src=data[0].name.toLowerCase().endsWith('.pdf')?await pdfJs(data[0]):null;
+   if (!isPdf && !data[0].type.startsWith('image/')) throw new Error('OCR accepts PDF, JPG or PNG images only.');
+   const src=isPdf?await pdfJs(data[0]):null;
    const imgs=[];if(src){for(let i=1;i<=src.numPages;i++){const {canvas}=await renderPage(await src.getPage(i),1.7);imgs.push(canvas);}}else imgs.push(data[0]);
    let result='';for(let i=0;i<imgs.length;i++){const r=await Tesseract.recognize(imgs[i],'eng');result+=`Page ${i+1}\n${r.data.text}\n\n`;}
    if(!result.trim())throw new Error('OCR could not recognize text.');return txtOut(result,'ocr-english.txt');
@@ -2053,7 +2065,10 @@ executeActiveTool = async function(){
 };
 const oldControls=renderToolControls;
 renderToolControls=function(tool){oldControls(tool);const target=$('toolDynamicControls');
- if(tool.id==='split-pdf')target.querySelector('#ctrlPageRange')?.setAttribute('placeholder','Blank = split all pages into separate PDFs');
+ if(tool.id==='split-pdf'){
+   const range=target.querySelector('#ctrlPageRange');
+   if(range){range.value='';range.placeholder='Blank = split all pages into separate PDFs';}
+ }
  if(tool.id==='organize-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Page order (e.g. 3,1,2)</label><input id="ctrlPageRange" class="w-full p-2 border rounded-xl" placeholder="3,1,2; blank = original order" />');
  if(tool.id==='crop-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Crop margins (points from each edge)</label><input id="ctrlCropMargin" type="number" min="0" value="24" class="w-full p-2 border rounded-xl"/>');
  if(tool.id==='redact-pdf')target.insertAdjacentHTML('afterbegin','<label class="block text-xs font-bold mb-1">Exact searchable text to black out (case-insensitive)</label><input id="ctrlRedact" class="w-full p-2 border rounded-xl" placeholder="Sensitive text"/><p class="text-xs text-rose-700 mt-2">Output is flattened to images. You must check it visually; scanned text is not matched.</p>');
